@@ -2,7 +2,7 @@
   "name": "embla-carousel-generator-react",
   "version": "1.0.0",
   "description": "Embla Carousel Generator For Photos",
-  "main": "src/js/index.jsx",
+  "main": "src/carousel/carousel-react/index.jsx",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -10,7 +10,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.4",
+    "@tailwindcss/vite": "^4.1.4",
     "embla-carousel": "^8.6.0",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
