@@ -11,7 +11,6 @@
     --color-lime-700: oklch(53.2% 0.157 131.589);
     --color-blue-400: oklch(70.7% 0.165 254.624);
     --color-blue-500: oklch(62.3% 0.214 259.815);
-    --color-zinc-600: oklch(44.2% 0.017 285.786);
     --spacing: 0.25rem;
     --text-xl: 1.25rem;
     --text-xl--line-height: calc(1.75 / 1.25);
@@ -21,9 +20,6 @@
     --text-5xl--line-height: 1;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
-    --drop-shadow-2xl: 0 25px 25px rgb(0 0 0 / 0.15);
-    --default-transition-duration: 150ms;
-    --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -224,15 +220,14 @@
   }
   .h-9 {
     height: calc(var(--spacing) * 9);
+  .h-3 {
+    height: calc(var(--spacing) * 3);
   }
-  .h-15 {
-    height: calc(var(--spacing) * 15);
+  .h-8 {
+    height: calc(var(--spacing) * 8);
   }
   .h-50 {
     height: calc(var(--spacing) * 50);
-  }
-  .h-509 {
-    height: calc(var(--spacing) * 509);
   }
   .h-full {
     height: 100%;
@@ -290,14 +285,44 @@
   }
   .gap-4 {
     gap: calc(var(--spacing) * 4);
+  .place-content-center {
+    place-content: center;
+  }
+  .place-items-center {
+    place-items: center;
+  }
+  .content-between {
+    align-content: space-between;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .justify-evenly {
+    justify-content: space-evenly;
+  }
+  .justify-start {
+    justify-content: flex-start;
+  }
+  .justify-items-center {
+    justify-items: center;
+  }
+  .justify-items-start {
+    justify-items: start;
   }
   .gap-10 {
     gap: calc(var(--spacing) * 10);
   }
-  .divide-blue-400 {
-    :where(& > :not(:last-child)) {
-      border-color: var(--color-blue-400);
-    }
+  .place-self-center {
+    place-self: center;
   }
   .place-self-center {
     place-self: center;
@@ -312,13 +337,6 @@
   .border-2 {
     border-style: var(--tw-border-style);
     border-width: 2px;
-  }
-  .border-4 {
-    border-style: var(--tw-border-style);
-    border-width: 4px;
-  }
-  .border-blue-400 {
-    border-color: var(--color-blue-400);
   }
   .border-blue-500 {
     border-color: var(--color-blue-500);
@@ -385,10 +403,6 @@
   .text-xl {
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
-  }
-  .font-bold {
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
   }
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
