@@ -174,8 +174,35 @@
   }
 }
 @layer utilities {
+  .float-left {
+    float: left;
+  }
+  .float-none {
+    float: none;
+  }
   .float-right {
     float: right;
+  }
+  .container {
+    width: 100%;
+    @media (width >= 40rem) {
+      max-width: 40rem;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem;
+    }
+  }
+  .mx-auto {
+    margin-inline: auto;
   }
   .flex {
     display: flex;
@@ -188,6 +215,12 @@
   }
   .table {
     display: table;
+  }
+  .h-3 {
+    height: calc(var(--spacing) * 3);
+  }
+  .h-8 {
+    height: calc(var(--spacing) * 8);
   }
   .h-9 {
     height: calc(var(--spacing) * 9);
@@ -207,6 +240,9 @@
   .h-screen {
     height: 100vh;
   }
+  .w-full {
+    width: 100%;
+  }
   .border-collapse {
     border-collapse: collapse;
   }
@@ -219,6 +255,39 @@
   .grid-rows-5 {
     grid-template-rows: repeat(5, minmax(0, 1fr));
   }
+  .place-content-center {
+    place-content: center;
+  }
+  .place-items-center {
+    place-items: center;
+  }
+  .content-between {
+    align-content: space-between;
+  }
+  .items-center {
+    align-items: center;
+  }
+  .justify-between {
+    justify-content: space-between;
+  }
+  .justify-center {
+    justify-content: center;
+  }
+  .justify-end {
+    justify-content: flex-end;
+  }
+  .justify-evenly {
+    justify-content: space-evenly;
+  }
+  .justify-start {
+    justify-content: flex-start;
+  }
+  .justify-items-center {
+    justify-items: center;
+  }
+  .justify-items-start {
+    justify-items: start;
+  }
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
@@ -229,6 +298,9 @@
     :where(& > :not(:last-child)) {
       border-color: var(--color-blue-400);
     }
+  }
+  .place-self-center {
+    place-self: center;
   }
   .rounded {
     border-radius: 0.25rem;
@@ -263,6 +335,12 @@
     --tw-gradient-to: var(--color-lime-200);
     --tw-gradient-stops: var(--tw-gradient-via-stops, var(--tw-gradient-position), var(--tw-gradient-from) var(--tw-gradient-from-position), var(--tw-gradient-to) var(--tw-gradient-to-position));
   }
+  .object-center {
+    object-position: center;
+  }
+  .p-5 {
+    padding: calc(var(--spacing) * 5);
+  }
   .p-10 {
     padding: calc(var(--spacing) * 10);
   }
@@ -272,14 +350,29 @@
   .px-10 {
     padding-inline: calc(var(--spacing) * 10);
   }
+  .px-15 {
+    padding-inline: calc(var(--spacing) * 15);
+  }
   .px-25 {
     padding-inline: calc(var(--spacing) * 25);
   }
   .pr-2 {
     padding-right: calc(var(--spacing) * 2);
   }
+  .pr-5 {
+    padding-right: calc(var(--spacing) * 5);
+  }
+  .pb-15 {
+    padding-bottom: calc(var(--spacing) * 15);
+  }
+  .pl-5 {
+    padding-left: calc(var(--spacing) * 5);
+  }
   .pl-10 {
     padding-left: calc(var(--spacing) * 10);
+  }
+  .text-center {
+    text-align: center;
   }
   .text-2xl {
     font-size: var(--text-2xl);
