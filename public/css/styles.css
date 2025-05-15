@@ -15,3 +15,7 @@
     padding-right: 10px;
     padding-bottom: 5px;
 }
+
+#name, #email, #message {
+  background-color: lightgray;
+}
