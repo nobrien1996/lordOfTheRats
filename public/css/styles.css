@@ -16,6 +16,12 @@
     padding-bottom: 5px;
 }
 
-#name, #email, #message {
+#name, #email, #message, #submit {
   background-color: lightgray;
+}
+
+#submit {
+  padding: 5px;
+  border: 2px solid #3B82F6;
+  border-radius: 5px;
 }
