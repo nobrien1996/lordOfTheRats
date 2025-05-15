@@ -21,7 +21,12 @@
 }
 
 #submit {
-  padding: 5px;
+  padding: 3px 10px 2px 10px;
   border: 2px solid #3B82F6;
   border-radius: 5px;
+}
+
+::placeholder {
+  font-family: "Macondo", cursive;
+  padding-left: 5px;
 }
