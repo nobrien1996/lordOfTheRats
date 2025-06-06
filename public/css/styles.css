@@ -22,7 +22,7 @@
     padding-bottom: 5px;
 }
 
-#name, #email, #message, #submit {
+#name, #email, #subject, #message, #submit {
   background-color: lightgray;
 }
 
