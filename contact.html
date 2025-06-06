@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Macondo&family=Metamorphous&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="public/js/routes/api/contact_form.js"></script>
     <title>Lord of the Rats - Contact</title>
     <link rel="icon" type="image/x-icon" href="public/carousel photos/harald-stare.jpg">
 </head>
@@ -29,7 +31,7 @@
 
     <div class="container mx-auto inline-flex">
         <div class="container px-15 text-xl">
-            <form>
+            <form id="contact-form" method="POST" action="sendmail.php">
                 <label for="name" class="text-2xl metamorphous-regular">Name:</label>
                 <br>
                 <input type="text" id="name" name="name" placeholder="Gaius Fabius Maximus" size="40" class="border-2 border-blue-500 rounded">
@@ -38,6 +40,11 @@
                 <label for="email" class="text-2xl metamorphous-regular">Email:</label>
                 <br>
                 <input type="email" id="email" name="email" placeholder="ikickedhannibalsbutt@gmail.com" size="40" class="border-2 border-blue-500 rounded">
+                <br>
+                <br>
+                <label for="subject" class="text-2xl metamorphous-regular">Subject:</label>
+                <br>
+                <input type="text" name="subject" id="subject" placeholder="What's this about?" size="40" class="border-2 border-blue-500 rounded">
                 <br>
                 <br>
                 <label for="message" class="text-2xl metamorphous-regular">Message:</label>
