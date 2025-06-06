@@ -91,25 +91,7 @@
     </footer>
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>
-        (function () {
-            emailjs.init('MQD_CHbAyhfloZeym')
-
-            window.addEventListener('load', function () {
-                document.getElementById('contact-form').addEventListener('submit', function (event) {
-                    event.preventDefault();
-    
-                    emailjs.sendForm('contact_service', 'contact_form', this).then(() => {
-                        console.log('Email sent');
-                        alert('Email sent successfully');
-                    }).catch((error) => {
-                        console.error('Email not sent', error);
-                        alert('Email not sent');
-                    });
-                });
-            });
-        })();
-    </script>
+    <script src="./public/js/contactForm.js"></script>
     
 </body>
 </html>
