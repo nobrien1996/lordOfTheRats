@@ -401,5 +401,4 @@ FodyWeavers.xsd
 
 
 node_modules
-.DS_Store
-.env
+Account - EmailJS.url
