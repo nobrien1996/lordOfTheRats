@@ -13,15 +13,23 @@
 </head>
 
 <body class="h-full bg-gradient-to-b from-lime-700 to-lime-200 text-shadow-lg">
-    <header>
-    <h1 class="p-10 text-5xl metamorphous-regular"><a href="../../index.html">The Lord of the Rats</a></h1>
-        <div class="inline-flex px-25 float-right text-2xl macondo-regular">
-            <h4 class="px-10"><a href="../../index.html">Home</a></h4>
-            <h4 class="px-10"><a href="./about.html">About</a></h4>
-            <h4 class="px-10"><a href="./gallery.html">Gallery</a></h4>
-            <h4 class="px-10"><a href="./contact.html">Contact</a></h4>
-        </div>
-    </header>
+    <script id="header-template" type="text/x-handlebars-template">
+        <header>
+            <h1 class="p-10 text-5xl metamorphous-regular">
+                <a href="{{homeUrl}}">{{siteTitle}}</a>
+            </h1>
+
+            <div class="inline-flex px-25 float-right text-2xl macondo-regular">
+                {{#each navLinks}}
+                    <h4 class="px-10"><a href="{{this.url}}">{{this.label}}</a></h4>
+                {{/each}}
+            </div>
+        </header>
+    </script>
+
+    <div id="header-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
 
     <br>
     <br>
@@ -72,24 +80,32 @@
     <br>
     <br>
 
-    <footer>
-        <div class="container mx-auto flex justify-between items-center">
+    <script id="footer-template" type="text/x-handlebars-template">
+        <footer>
+            <div class="container mx-auto flex justify-between items-center">
             <div class="px-15 pb-15 metamorphous-regular">
-                <a href="./contact.html">Contact</a>
+                <a href="{{contactUrl}}">Contact</a>
             </div>
 
             <div class="text-center text-shadow-none">
-                <p>Copyright &copy; Nick O'Brien 2025</p>
+                <p>&copy; {{copyright}}</p>
             </div>
 
             <div class="flex px-15 pb-15">
-                <a href="https://www.instagram.com/the.lord.of.the.rats/"><img class="h-8 pr-5" src="../logos/instagram-logo.png" alt="Instagram logo"/></a>
-                <a href="https://www.tiktok.com/@the.lord.of.the.rats96"><img class="h-8 pr-5" src="../logos/tiktok-logo.png" alt="TikTok logo"/></a>
-                <a href="https://www.youtube.com/@The_Lord_Of_The_Rats"><img class="h-8" src="../logos/youtube-logo.png" alt="YouTube logo"/></a>
+                {{#each socialLinks}}
+                <a href="{{this.url}}" target="_blank" rel="noopener">
+                    <img class="h-8 {{this.class}}" src="{{this.icon}}" alt="{{this.alt}}" />
+                </a>
+                {{/each}}
             </div>
-        </div>
-    </footer>
+            </div>
+        </footer>
+    </script>
 
+    <div id="footer-container"></div>
+
+    <script src="../handlebars/header.handlebars.js"></script>
+    <script src="../handlebars/footer.handlebars.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="../js/contactForm.js"></script>
     
