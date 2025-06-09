@@ -1,31 +1,42 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
+const { ApolloServer, gql } = require('apollo-server');
+const { MongoClient, ObjectId } = require('mongodb');
 
-const app = express();
-app.use(cors());
-app.use(express.json());
+const MONGO_URI = 'mongodb://localhost:3001';
+const DB_NAME = 'mydatabase';
+const COLLECTION = 'contacts';
 
-mongoose.connect('mongodb://localhost:27017/signupDB', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log("Connected to MongoDB"))
-  .catch(err => console.error("MongoDB error:", err));
-
-const UserSchema = new mongoose.Schema({
-  name: String,
-  email: String
-});
-const User = mongoose.model('User', UserSchema);
-
-app.post('/api/signup', async (req, res) => {
-  try {
-    const user = new User({ name: req.body.name, email: req.body.email });
-    await user.save();
-    res.status(200).json({ message: 'User saved' });
-  } catch (err) {
-    res.status(500).json({ error: 'Failed to save user' });
+const typeDefs = gql`
+  type Contact {
+    id: ID!
+    name: String!
+    email: String!
   }
-});
 
-app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+  type Mutation {
+    addContact(name: String!, email: String!): Contact
+  }
+`;
+
+async function startServer() {
+  const client = new MongoClient(MONGO_URI);
+  await client.connect();
+  const db = client.db(DB_NAME);
+  const contacts = db.collection(COLLECTION);
+
+  const resolvers = {
+    Mutation: {
+      addContact: async (_, { name, email }) => {
+        const result = await contacts.insertOne({ name, email });
+        return { id: result.insertedId.toString(), name, email };
+      },
+    },
+  };
+
+  const server = new ApolloServer({ typeDefs, resolvers });
+
+  server.listen().then(({ url }) => {
+    console.log(`Server ready at ${url}`);
+  });
+}
+
+startServer();
