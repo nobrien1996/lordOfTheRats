@@ -1,15 +1,16 @@
 const express = require('express');
+const https = require('https');
 const fs = require('fs');
-const bodyParser = require('body-parser');
 const cors = require('cors');
-const { parse } = require('path');
+require('dotenv').config();
+
+const subscribeRoute = require('./routes/subscribe');
 
 const app = express();
-const PORT = 3000;
-const MAILING_LIST = './mailing-list.json';
-
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
+
+app.use('/subscribe', subscribeRoute);
 
 let mailingList = [];
 if (fs.existsSync(MAILING_LIST)) {
@@ -34,6 +35,11 @@ app.post('/subscribe', (req, res) => {
     res.status(200).json({ message: 'You are now subscribed!' });
 });
 
-app.listen(PORT, () => {
-    console.log(`Mailing list server running on http://localhost:${PORT}`);
+const httpsOptions = {
+    key: fs.readFileSync('./ssl/key.pem'),
+    cert: fs.readFileSync('./ssl/cert.pem'),
+};
+
+https.createServer(httpsOptions, app).listen(443, () => {
+    console.log('Secure server running on port 443');
 });
