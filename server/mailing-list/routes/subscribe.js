@@ -1,12 +1,14 @@
 const express = require('express');
-const crypto = require('crypto');
-const nodemailer = require('nodemailer');
 const pool = require('../db');
+const nodemailer = require('nodemailer');
+const crypto = require('crypto');
+require('dotenv').config();
+
 const router = express.Router();
 
 router.post('/', async (req, res) => {
     const { name, email } = req.body;
-    if ( !name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         return res.status(400).json({ message: 'Invalid name or email' });
     }
 
@@ -17,27 +19,26 @@ router.post('/', async (req, res) => {
             INSERT INTO subscribers (name, email, confirm_token)
             VALUES ($1, $2, $3)
             ON CONFLICT (email) DO UPDATE SET name = EXCLUDED.name, confirm_token = EXCLUDED.confirm_token
-            `, [name, email, token]);
+        `, [name, email, token]);
 
-            const confirmLink = `https://domain_placeholder.com/confirm?token=${token}`;
+        const confirmLink = `${process.env.BASE_URL}/confirm?token=${token}`;
 
-            const transporter = nodemailer.createTransport ({
-                service: 'SendGrid',
-                auth: {
-                    user: process.env.EMAIL_USER,
-                    pass: process.env.EMAIL_PASS,
-                }
-            });
+        const transporter = nodemailer.createTransport({
+            service: 'Gmail',
+            auth: {
+                user: process.env.EMAIL_USER,
+                pass: process.env.EMAIL_PASS,
+            }
+        });
 
-            await transporter.sendMail ({
-                from: '"The Lord of the Rats" <no-reply@placeholder.com>',
-                to: email,
-                subject: 'Confirm your subscription',
-                html: `<p>Hello ${name},</p>
-                    <p>Click to confirm: <a href='${confirmLink}'>${confirmLink}</a></p>`,
-            });
+        await transporter.sendMail({
+            from: process.env.EMAIL_USER,
+            to: email,
+            subject: 'Confirm your subscription',
+            html: `<p>Hello ${name},</p><p>Click to confirm: <a href="${confirmLink}">${confirmLink}</a></p>`
+        });
 
-            res.status(200).json({ message: 'Confirmation email sent' });
+        res.status(200).json({ message: 'Confirmation email sent' });
 
     } catch (err) {
         console.error(err);
