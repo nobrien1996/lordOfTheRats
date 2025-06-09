@@ -42,16 +42,15 @@
 }
 
 .expand {
-  z-index: 999;
-  cursor: pointer
-  -webkit-zoom-in;
-  transition-duration: 0.3s;
-  transition-timing-function: ease;
-
+  z-index: 1;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .expand:hover {
   transform: scale(5);
+  z-index: 999;
 }
 
 .carousel {
@@ -64,16 +63,27 @@
 }
 
 .carousel-image {
-  display: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s;
+  visibility: hidden;
   margin: 0 auto;
   justify-items: center;
-  width: 100%;
-  height: 100%;
+  width: 75%;
+  height: 75%;
   object-fit: cover;
+  z-index: 0;
 }
 
 .carousel-image.active {
-  display: block;
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+  transition: opacity 0.5s ease-in-out;
 }
 
 button {
@@ -89,10 +99,16 @@ button {
 
 #prevBtn {
   left: 10px;
+  transition: transform 0.3s ease;
 }
 
 #nextBtn {
   right: 10px;
+  transition: transform 0.3s ease;
+}
+
+#prevBtn:hover, #nextBtn:hover {
+  transform: scale(1.2);
 }
 
 .error-message {
