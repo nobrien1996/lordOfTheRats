@@ -60,6 +60,31 @@ function contactForm() {
             emailjs.sendForm('contact_service', 'contact_form', form).then(() => {
                 console.log('Email sent');
                 alert('Email sent successfully');
+
+                const subscribeToList = confirm('Would you like to join my mailing list?');
+
+                if (subscribeToList) {
+                    const name = nameInput.value.trim();
+                    const email = emailInput.value.trim();
+
+                    fetch('', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/JSON',
+                        },
+                        body: JSON.stringify({ name, email}),
+                    }).then(response => {
+                        if (response.ok) {
+                            alert('You have been successfully subscribed!');
+                        } else {
+                            alert('There was an issue subscribing you, please try again');
+                        }
+                    }).catch(error => {
+                        console.error('Subscription error:', error);
+                        alert('There was a network error while subscribing.');
+                    });
+                }
+                
                 form.reset();
             }).catch((error) => {
                 console.error('Email not sent', error);
