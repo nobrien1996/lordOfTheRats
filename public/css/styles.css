@@ -94,3 +94,14 @@ button {
 #nextBtn {
   right: 10px;
 }
+
+.error-message {
+  color: darkred;
+  font-size: 20px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+input.invalid, textarea.invalid {
+  border-color: darkred;
+}
