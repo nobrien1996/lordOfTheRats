@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
     const { name, email } = req.body;
+
     if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         return res.status(400).json({ message: 'Invalid name or email' });
     }
@@ -18,7 +19,8 @@ router.post('/', async (req, res) => {
         await pool.query(`
             INSERT INTO subscribers (name, email, confirm_token)
             VALUES ($1, $2, $3)
-            ON CONFLICT (email) DO UPDATE SET name = EXCLUDED.name, confirm_token = EXCLUDED.confirm_token
+            ON CONFLICT (email) DO UPDATE
+            SET name = EXCLUDED.name, confirm_token = EXCLUDED.confirm_token;
         `, [name, email, token]);
 
         const confirmLink = `${process.env.BASE_URL}/confirm?token=${token}`;
@@ -28,21 +30,26 @@ router.post('/', async (req, res) => {
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS,
-            }
+            },
         });
 
         await transporter.sendMail({
             from: process.env.EMAIL_USER,
             to: email,
             subject: 'Confirm your subscription',
-            html: `<p>Hello ${name},</p><p>Click to confirm: <a href="${confirmLink}">${confirmLink}</a></p>`
+            html: `
+                <p>Hello ${name},</p>
+                <p>Thank you for subscribing!</p>
+                <p>Please confirm your email by clicking the link below:</p>
+                <a href="${confirmLink}">${confirmLink}</a>
+            `,
         });
 
-        res.status(200).json({ message: 'Confirmation email sent' });
+        return res.status(200).json({ message: 'Confirmation email sent' });
 
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Server error' });
+    } catch (error) {
+        console.error('Subscription Error:', error);
+        return res.status(500).json({ message: 'Internal server error' });
     }
 });
 

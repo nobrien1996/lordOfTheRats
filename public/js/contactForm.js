@@ -67,7 +67,7 @@ function contactForm() {
                     const name = nameInput.value.trim();
                     const email = emailInput.value.trim();
 
-                    fetch('', {
+                    fetch('http://localhost:4000/api/subscribe', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/JSON',
