@@ -402,3 +402,4 @@ FodyWeavers.xsd
 
 node_modules
 Account - EmailJS.url
+./server/mailing-list/.env
