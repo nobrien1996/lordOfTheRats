@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your Subscription</title>
+    <style>
+        body {font-family: Arial, Helvetica, sans-serif; color: #333; }
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        p { line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h2>Confirm Your Subscription</h2>
+    <p>Hi {{name}},</p>
+    <p>Thanks for joining my mailing list! Please confirm your subscription by clicking the button below:</p>
+    <a href="{{confirm_link}}" class="button">Confirm Subscription</a>
+    <p>If you didn't request this, this email is safe to ignore.</p>
+    <p>— Nick</p>
+  </div>
+</body>
+</html>
