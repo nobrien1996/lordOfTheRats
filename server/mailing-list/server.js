@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 const cors = require('cors');
 const https = require('https');
 const fs = require('fs');
@@ -24,6 +24,6 @@ const httpsOptions = {
     cert: fs.readFileSync('./ssl/cert.pem'),
 };
 
-https.createServer(httpsOptions, app).listen(443, () => {
+/*https.createServer(httpsOptions, app).listen(443, () => {
     console.log('Server running at https://localhost');
-});
+});*/
