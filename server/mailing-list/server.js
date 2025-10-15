@@ -1,6 +1,5 @@
-/*const express = require('express');
+const express = require('express');
 const cors = require('cors');
-const https = require('https');
 const fs = require('fs');
 const path = require('path');
 require('dotenv').config({ path: '../../.env' });
@@ -18,12 +17,3 @@ app.use('/subscribe', subscribeRoute);
 app.use('/confirm', confirmRoute);
 app.use('/unsubscribe', unsubscribeRoute);
 app.use('/scripts', express.static(path.join(__dirname, "../contactList")));
-
-const httpsOptions = {
-    key: fs.readFileSync('./ssl/key.pem'),
-    cert: fs.readFileSync('./ssl/cert.pem'),
-};
-
-/*https.createServer(httpsOptions, app).listen(443, () => {
-    console.log('Server running at https://localhost');
-});*/
