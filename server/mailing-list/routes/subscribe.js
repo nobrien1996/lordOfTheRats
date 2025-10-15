@@ -6,6 +6,11 @@ require('dotenv').config();
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+    console.log('GET request received at /api/subscribe')
+    res.status(200).send('Subscribe function now working');
+});
+
 router.post('/', async (req, res) => {
     const { name, email } = req.body;
 
