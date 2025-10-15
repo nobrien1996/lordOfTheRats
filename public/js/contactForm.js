@@ -67,6 +67,8 @@ function contactForm() {
                     const name = nameInput.value.trim();
                     const email = emailInput.value.trim();
 
+                    console.group('Fetch POST to /api/subscribe');
+                    
                     fetch('http://localhost:5500/api/subscribe', {
                         method: 'POST',
                         headers: {

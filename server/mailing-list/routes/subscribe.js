@@ -1,3 +1,5 @@
+console.log('subscribe route file loaded')
+
 const express = require('express');
 const pool = require('../db');
 const nodemailer = require('nodemailer');
@@ -6,12 +8,8 @@ require('dotenv').config();
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    console.log('GET request received at /api/subscribe')
-    res.status(200).send('Subscribe function now working');
-});
-
 router.post('/', async (req, res) => {
+    console.log('received POST /api/subscribe', req.body)
     const { name, email } = req.body;
 
     if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -56,6 +54,12 @@ router.post('/', async (req, res) => {
         console.error('Subscription Error:', error);
         return res.status(500).json({ message: 'Internal server error' });
     }
+});
+
+
+router.get('/', (req, res) => {
+    console.log('GET request received at /api/subscribe')
+    res.status(200).send('Subscribe function now working');
 });
 
 module.exports = router;
