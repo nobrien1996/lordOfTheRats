@@ -15,7 +15,7 @@ app.use(( req, res, next ) => {
     console.log('REQ:', req.method, req.url);
     next();
 });
-app.use('/api/subscribe', subscribeRoute);
+app.use('/api', subscribeRoute);
 
-const PORT = process.env.PORT || 5500;
+const PORT = process.env.port || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
