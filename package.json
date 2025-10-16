@@ -1,4 +1,10 @@
 {
+  "name": "lordOfTheRats",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.6",
     "body-parser": "^2.2.0",
