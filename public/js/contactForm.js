@@ -69,7 +69,7 @@ function contactForm() {
 
                     console.group('Fetch POST to /api/subscribe');
                     
-                    fetch('http://localhost:4000/api/subscribe', {
+                    fetch('/api/subscribe', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
