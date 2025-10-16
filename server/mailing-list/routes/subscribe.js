@@ -56,10 +56,4 @@ router.post('/', async (req, res) => {
     }
 });
 
-
-router.get('/', (req, res) => {
-    console.log('GET request received at /api/subscribe')
-    res.status(200).send('Subscribe function now working');
-});
-
 module.exports = router;
