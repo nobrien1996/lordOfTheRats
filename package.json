@@ -5,9 +5,12 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
+    "git": "^0.1.5",
     "handlebars": "^4.7.8",
     "mongoose": "^8.15.1",
+    "nodejs": "^0.0.0",
     "nodemailer": "^7.0.3",
+    "npm": "^10.9.4",
     "pg": "^8.16.0",
     "ph": "^0.1.10",
     "tailwindcss": "^4.1.6"
