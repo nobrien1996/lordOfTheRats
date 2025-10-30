@@ -405,4 +405,4 @@ Account - EmailJS.url
 .env
 
 #private certs
-server\certs\private\thelordoftherats.com-PrivateKey.pem
+server/certs/private/thelordoftherats.com-PrivateKey.pem
