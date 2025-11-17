@@ -1,3 +1,3 @@
 const server = require("../server/server");
 
-@vercel/node\module.exports = server;
+module.exports = server;
