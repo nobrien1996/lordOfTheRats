@@ -4,9 +4,6 @@
       "runtime": "nodejs20.x"
     }
   },
-  "builds": [
-    { "src": "api/index.js", "use": "@vercel/node" } 
-  ],
   "routes": [
     { "src": "api/(.*)", "dest": "/api/index.js" }
   ]
