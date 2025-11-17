@@ -34,3 +34,5 @@ app.use('/api', subscribeRoute);
 
 const PORT = process.env.PORT || 443;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+module.exports = app;
