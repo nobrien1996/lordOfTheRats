@@ -1,4 +1,10 @@
 {
+  "name": "vercel-express-app",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.6",
     "body-parser": "^2.2.0",
@@ -13,6 +19,7 @@
     "npm": "^10.9.4",
     "pg": "^8.16.0",
     "ph": "^0.1.10",
-    "tailwindcss": "^4.1.6"
+    "tailwindcss": "^4.1.6",
+    "vercel": "^48.10.3"
   }
 }
