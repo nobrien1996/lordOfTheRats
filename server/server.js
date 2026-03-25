@@ -3,6 +3,7 @@ const https = require('https');
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 
 dotenv.config({ path: '../.env' });
 
@@ -29,9 +30,9 @@ app.use('/api/confirm', confirmRoute);
 app.use('/api/unsubscribe', unsubscribeRoute);
 
 if (require.main === module) {
-    const option = {
-        key: fs.readFileSync('server\certs\private\thelordoftherats.com-PrivateKey.pem'),
-        cert: fs.readFileSync('server\certs\public\thelordoftherats.com-CSR.pem')
+    const options = {
+        key: fs.readFileSync('server/certs/private/thelordoftherats.com-PrivateKey.pem'),
+        cert: fs.readFileSync('server/certs/public/thelordoftherats.com-CSR.pem')
     };
     https.createServer(options, app).listen(443, () => {
         console.log('Server is running on https://localhost:443')
