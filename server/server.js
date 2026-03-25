@@ -5,7 +5,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const path = require('path');
 
-dotenv.config({ path: '../.env' });
+dotenv.config({ path: path.join(__dirname, '../.env') });
 
 const subscribeRoute = require('./mailing-list/routes/subscribe.js');
 const confirmRoute = require('./mailing-list/routes/confirm.js');
