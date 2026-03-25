@@ -20,7 +20,7 @@ app.get("/api/index", (req, res) => {
     res.json({ message: "Hello from Express on Vercel!" });
 });
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '..')));
 app.use(( req, res, next ) => {
     console.log('REQ:', req.method, req.url);
     next();
@@ -30,15 +30,9 @@ app.use('/api/confirm', confirmRoute);
 app.use('/api/unsubscribe', unsubscribeRoute);
 
 if (require.main === module) {
-    const options = {
-        key: fs.readFileSync('server/certs/private/thelordoftherats.com-PrivateKey.pem'),
-        cert: fs.readFileSync('server/certs/public/thelordoftherats.com-CSR.pem')
-    };
-    https.createServer(options, app).listen(443, () => {
-        console.log('Server is running on https://localhost:443')
-        console.log('REQ', req.method, req.url);
-        next();
-    })
+    app.listen(3333, () => {
+        console.log('Server is running on http://localhost:3333');
+    });
 }
 
 module.exports = app;
