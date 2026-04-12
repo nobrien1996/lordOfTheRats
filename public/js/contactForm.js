@@ -58,7 +58,6 @@ function contactForm() {
             }
     
             emailjs.sendForm('contact_service', 'contact_form', form).then(() => {
-                console.log('Email sent');
                 alert('Email sent successfully');
 
                 const subscribeToList = confirm('Would you like to join my mailing list?');
@@ -67,8 +66,6 @@ function contactForm() {
                     const name = nameInput.value.trim();
                     const email = emailInput.value.trim();
 
-                    console.group('Fetch POST to /api/subscribe');
-                    
                     fetch('/api/subscribe', {
                         method: 'POST',
                         headers: {
