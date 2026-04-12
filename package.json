@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "vercel dev"
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.6",
