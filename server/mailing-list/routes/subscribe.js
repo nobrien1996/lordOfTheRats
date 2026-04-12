@@ -1,5 +1,3 @@
-console.log('subscribe route file loaded')
-
 const express = require('express');
 const pool = require('../db');
 const nodemailer = require('nodemailer');
@@ -26,7 +24,7 @@ router.post('/', async (req, res) => {
             SET name = EXCLUDED.name, confirm_token = EXCLUDED.confirm_token;
         `, [name, email, token]);
 
-        const confirmLink = `${process.env.BASE_URL}/confirm?token=${token}`;
+        const confirmLink = `${process.env.BASE_URL}/api/confirm?token=${token}`;
 
         const transporter = nodemailer.createTransport({
             service: 'Gmail',
