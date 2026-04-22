@@ -26,11 +26,6 @@
   background-color: lightgray;
 }
 
-#name, #email, #subject, #message {
-  width: 100%;
-  max-width: 400px;
-}
-
 #submit {
   padding: 3px 10px 2px 10px;
   border: 2px solid #3B82F6;
@@ -62,8 +57,8 @@
   margin: 0 auto;
   text-align: center;
   position: relative;
-  width: min(500px, 90vw);
-  height: min(600px, 108vw);
+  width: 500px;
+  height: 600px;
   overflow: hidden;
 }
 
@@ -125,22 +120,4 @@ button {
 
 input.invalid, textarea.invalid {
   border-color: darkred;
-}
-
-.youTube-embed {
-  min-height: 220px;
-}
-
-.youTube-embed iframe {
-  min-height: 220px;
-}
-
-@media (max-width: 767px) {
-  .floater {
-    float: none;
-    display: block;
-    margin: 0 auto 1rem;
-    padding-right: 0;
-    text-align: center;
-  }
 }
