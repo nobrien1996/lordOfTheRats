@@ -18,13 +18,20 @@
                 <a href="/index.html">The Lord of the Rats</a>
             </h1>
 
-            <div class="inline-flex px-25 float-right text-2xl macondo-regular">
+            <div id="desktop-nav" class="inline-flex px-25 float-right text-2xl macondo-regular">
                     <h4 class="px-10"><a href="/index.html">Home</a></h4>
                     <h4 class="px-10"><a href="../main-pages/about.html">About</a></h4>
                     <h4 class="px-10"><a href="../main-pages/gallery.html">Gallery</a></h4>
                     <h4 class="px-10"><a href="../main-pages/contact.html">Contact</a></h4>
             </div>
+            <button id="menu-toggle" aria-label="Open menu">&#9776;</button>
         </header>
+        <nav id="mobile-menu">
+            <a href="/index.html">Home</a>
+            <a href="../main-pages/about.html">About</a>
+            <a href="../main-pages/gallery.html">Gallery</a>
+            <a href="../main-pages/contact.html">Contact</a>
+        </nav>
 
     <br>
     <br>
@@ -94,5 +101,13 @@
         </div>
     </footer>
 
+    <script>
+        const toggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        toggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.style.display === 'flex';
+            mobileMenu.style.display = isOpen ? 'none' : 'flex';
+        });
+    </script>
 </body>
 </html>

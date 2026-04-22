@@ -86,7 +86,7 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-button {
+#prevBtn, #nextBtn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -152,11 +152,7 @@ input.invalid, textarea.invalid {
   /* Show the hamburger button */
   #menu-toggle {
     display: block;
-    position: static;
-    top: auto;
-    transform: none;
     background: none;
-    background-color: transparent;
     border: none;
     font-size: 2rem;
     padding: 0.5rem 1rem;
