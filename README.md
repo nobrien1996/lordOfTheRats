@@ -1,13 +1,13 @@
-# Lord of the Rats
+### Lord of the Rats
 by Nick O'Brien
 
 [![MIT](https://img.shields.io/badge/license-MIT-blue)](https://opensource.org/licenses/MIT) 
 
 Table of Contents
-* [Description] (#description)
-* [Usage] (#usage)
-* [License] (#license)
-* [Questions] (#questions)
+- [Description](#description)
+- [Usage](#usage)
+- [License](#license)
+- [Questions](#questions)
 
 
 # Description
