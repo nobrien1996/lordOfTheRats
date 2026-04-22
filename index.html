@@ -14,21 +14,29 @@
 
 <body class="h-full bg-gradient-to-b from-lime-700 to-lime-200 text-shadow-lg">
         <header>
-            <h1 class="p-10 text-5xl metamorphous-regular">
-                <a href="index.html">The Lord of the Rats</a>
-            </h1>
-
-            <div class="inline-flex px-25 float-right text-2xl macondo-regular">
-                    <h4 class="px-10"><a href="index.html">Home</a></h4>
-                    <h4 class="px-10"><a href="public/main-pages/about.html">About</a></h4>
-                    <h4 class="px-10"><a href="public/main-pages/gallery.html">Gallery</a></h4>
-                    <h4 class="px-10"><a href="public/main-pages/contact.html">Contact</a></h4>
+            <div class="flex items-center justify-between px-4 md:px-10 py-4">
+                <h1 class="text-3xl md:text-5xl metamorphous-regular">
+                    <a href="/index.html">The Lord of the Rats</a>
+                </h1>
+                <button id="menu-toggle" class="md:hidden text-3xl p-2 leading-none">&#9776;</button>
+                <nav class="hidden md:flex text-2xl macondo-regular">
+                    <h4 class="px-6"><a href="/index.html">Home</a></h4>
+                    <h4 class="px-6"><a href="/public/main-pages/about.html">About</a></h4>
+                    <h4 class="px-6"><a href="/public/main-pages/gallery.html">Gallery</a></h4>
+                    <h4 class="px-6"><a href="/public/main-pages/contact.html">Contact</a></h4>
+                </nav>
             </div>
+            <nav id="mobile-menu" class="hidden flex-col items-center text-xl macondo-regular py-2">
+                <a href="/index.html" class="py-3 w-full text-center">Home</a>
+                <a href="/public/main-pages/about.html" class="py-3 w-full text-center">About</a>
+                <a href="/public/main-pages/gallery.html" class="py-3 w-full text-center">Gallery</a>
+                <a href="/public/main-pages/contact.html" class="py-3 w-full text-center">Contact</a>
+            </nav>
         </header>
 
     <br>
 
-    <div class="inline-flex p-10 text-xl">
+    <div class="flex flex-wrap p-4 md:p-10 text-xl">
         <h5 class="pr-2 pl-10"><a href="public/subpages/cosplay.html"> Cosplayer,</a></h5>
         <h5 class="pr-2"><a href="public/subpages/larp.html">LARPer,</a></h5>
         <h5 class="pr-2"><a href="public/subpages/craft.html">Crafter,</a></h5>
@@ -133,6 +141,13 @@
     </footer>
 
     <script src="public/js/carousel.js"></script>
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        });
+    </script>
 
 </body>
 </html>
