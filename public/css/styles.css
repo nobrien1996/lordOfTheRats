@@ -121,3 +121,109 @@ button {
 input.invalid, textarea.invalid {
   border-color: darkred;
 }
+
+/* =====================================================
+   Mobile-only styles — desktop is completely unchanged
+   ===================================================== */
+
+#menu-toggle { display: none; }
+#mobile-menu  { display: none; }
+
+@media (max-width: 767px) {
+  /* Header: flex row so title and hamburger sit side-by-side */
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+    padding: 0.75rem 1rem;
+    flex: 1;
+  }
+
+  /* Hide the desktop float-right nav */
+  #desktop-nav {
+    display: none !important;
+  }
+
+  /* Show the hamburger button */
+  #menu-toggle {
+    display: block;
+    position: static;
+    top: auto;
+    transform: none;
+    background: none;
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: inherit;
+    flex-shrink: 0;
+  }
+
+  /* Mobile dropdown menu (JS toggles display: flex) */
+  #mobile-menu {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-top: 1px solid rgba(0,0,0,0.15);
+  }
+
+  #mobile-menu a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-family: "Macondo", cursive;
+    font-size: 1.2rem;
+    text-decoration: none;
+  }
+
+  /* Carousel: shrink to fit screen width */
+  .carousel {
+    width: 90vw;
+    height: 108vw;
+  }
+
+  /* Contact form: stack the two columns */
+  #contact-layout {
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  /* Form inputs: fill available width */
+  #name, #email, #subject, #message {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Gallery embeds: stack vertically */
+  #gallery-embeds {
+    flex-direction: column;
+  }
+
+  .youTube-embed {
+    min-height: 220px;
+    width: 100%;
+  }
+
+  .youTube-embed iframe {
+    min-height: 220px;
+    width: 100%;
+  }
+
+  /* About page: un-float image so it doesn't crush text */
+  .floater {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem;
+    padding-right: 0;
+    text-align: center;
+  }
+}
